@@ -1,0 +1,28 @@
+.phoneBookWrap {
+  padding: 20px;
+  max-width: 400px;
+  background-color: rgb(225, 211, 227);
+  border-radius: 10px;
+  margin: 0 auto;
+}
+.phoneBookTitle {
+  color: rgb(95, 64, 124);
+  text-align: center;
+  font-size: 30px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+.notification {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 80px;
+  background-color: white;
+  color: rgb(95, 64, 124);
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}

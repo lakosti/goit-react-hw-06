@@ -1,0 +1,14 @@
+.contactBtn {
+  display: block;
+  padding: 10px;
+  margin-left: auto;
+  background-color: rgb(145, 93, 193);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transform: scale(1);
+  transition: transform 200ms linear;
+}
+.contactBtn:hover {
+  transform: scale(0.9);
+}
