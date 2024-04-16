@@ -27,7 +27,6 @@ const ContactForm = () => {
         <label className={css.formLabel} htmlFor={nameId}>
           Name
         </label>
-
         <div className={css.formText}>
           <Field className={css.formInput} type="text" name="name" id={nameId} placeholder="Name" />
         </div>
