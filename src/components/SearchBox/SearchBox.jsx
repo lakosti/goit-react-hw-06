@@ -4,7 +4,7 @@ import { changeFilter } from "../../redux/filtersSlice";
 import { useId } from "react";
 
 const SearchBox = () => {
-  const search = useSelector((state) => state.filter.name);
+  const selectNameFilter = useSelector((state) => state.filter.name);
   const dispatch = useDispatch();
 
   const id = useId();
@@ -20,7 +20,7 @@ const SearchBox = () => {
         id={id}
         className={css.seacrhInput}
         type="text"
-        value={search}
+        value={selectNameFilter}
         onChange={handelInputSearch}
       />
     </div>

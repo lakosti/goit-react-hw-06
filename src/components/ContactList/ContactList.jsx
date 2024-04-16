@@ -4,17 +4,19 @@ import Contact from "../Contact/Contact";
 import css from "./ContactList.module.css";
 
 const ContactList = () => {
-  const contacts = useSelector((state) => state.contacts.items);
-  const search = useSelector((state) => state.filter.name);
+  const selectContacts = useSelector((state) => state.contacts.items);
+  const selectNameFilter = useSelector((state) => state.filter.name);
 
   const filterContacts =
-    search.trim() !== ""
-      ? contacts.filter((value) => value.name.toLowerCase().includes(search.toLowerCase().trim()))
-      : contacts;
+    selectNameFilter.trim() !== ""
+      ? selectContacts.filter((value) =>
+          value.name.toLowerCase().includes(selectNameFilter.toLowerCase().trim())
+        )
+      : selectContacts;
 
   return (
     <>
-      {contacts.length !== 0 ? (
+      {selectContacts.length !== 0 ? (
         <ul className={css.contactList}>
           {filterContacts.map((contact) => (
             <li className={css.contactItem} key={contact.id}>
@@ -26,7 +28,7 @@ const ContactList = () => {
         <p className={css.infoText}>No contacts</p>
       )}
 
-      {!filterContacts.length && contacts.length !== 0 && (
+      {!filterContacts.length && selectContacts.length !== 0 && (
         <p className={css.infoText}>No contacts found </p>
       )}
     </>
