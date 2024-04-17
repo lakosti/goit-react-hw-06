@@ -1,14 +1,18 @@
-import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
-import css from "./ContactForm.module.css";
+import { ErrorMessage, Field, Form, Formik } from "formik";
 import { useDispatch } from "react-redux";
 import { useId } from "react";
-import { addContact } from "../../redux/contactsSlice";
 import { initialValues } from "../../redux/constants";
+import { addContact } from "../../redux/contactsOps";
+import css from "./ContactForm.module.css";
 
 const ContactSchema = Yup.object().shape({
   name: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required*"),
-  number: Yup.string().min(3, "Too Short!").max(50, "Too Long!").required("Required*"),
+  number: Yup.string()
+    .matches(/^\d{3}-\d{3}-\d{4}$/, "Invalid phone number format")
+    .min(8, "Too Short!")
+    .max(15, "Too Long!")
+    .required("Required*"),
 });
 
 const ContactForm = () => {
@@ -42,7 +46,7 @@ const ContactForm = () => {
             type="text"
             name="number"
             id={numberId}
-            placeholder="xxx-xx-xx"
+            placeholder="xxx-xxx-xxxx"
           />
         </div>
         <ErrorMessage className={css.errorMsg} name="number" component="span" />
